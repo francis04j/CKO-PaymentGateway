@@ -20,16 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
-    
-      - name: Start dependencies (docker-compose)
-        run: |
-          docker-compose up -d  
-
-      - name: Wait for SQL Server container
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '5s'
+        uses: actions/checkout@v2   
+      
 
       - name: Install .NET Core SDK
         uses: actions/setup-dotnet@v1
@@ -42,6 +34,6 @@ jobs:
       - name: Build
         run: dotnet build -c Release --no-restore
     
-      - name: Test
-        run: dotnet test -c Release --no-build
+      - name: Unit Test
+        run: dotnet test PaymentGateway/Tests/WebApi.UnitTests -c Release --no-build
 

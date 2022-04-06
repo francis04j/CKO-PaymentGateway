@@ -1,6 +1,7 @@
 # CKO-PaymentGateway - Spec
 
 Note: Technical Readme is under the PaymentGateway dir
+![build-test](https://github.com/francis04j/CKO-PaymentGateway/actions/workflows/payment-gateway-workflow.yml/badge.svg)
 
 # Payment Gateway
 A Payment Gateway is responsible for validating requests, storing card information and forwarding

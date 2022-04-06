@@ -34,8 +34,8 @@ jobs:
             dotnet restore /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway/PaymentGateway.sln
 
       - name: Build
-        run: dotnet build 'PaymentGateway.sln' -c Release --no-restore
+        run: dotnet build /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway/PaymentGateway.sln -c Release --no-restore
     
       - name: Unit Test
-        run: dotnet test 'Tests/WebApi.UnitTests' -c Release --no-build
+        run: dotnet test /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway/Tests/WebApi.UnitTests -c Release --no-build
 

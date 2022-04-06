@@ -1,0 +1,41 @@
+name: PaymentAPI
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+on:
+  push:
+    paths:
+      - 'Src/**'
+      - 'Tests/**'
+      - 'PaymentGateway.sln'      
+      - '**/payment-gateway-workflow.yml'
+  pull_request:
+    paths:
+      - 'Src/**'
+      - 'Tests/**'
+      - 'PaymentGateway.sln'
+      - '**/payment-gateway-workflow.yml'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2   
+      
+
+      - name: Install .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+    
+      - name: Restore NuGet packages
+        run: |
+            ls /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway
+            dotnet restore /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway/PaymentGateway.sln
+
+      - name: Build
+        run: dotnet build /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway/PaymentGateway.sln -c Release --no-restore
+    
+      - name: Unit Test
+        run: dotnet test /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway/Tests/WebApi.UnitTests -c Release --no-build
+

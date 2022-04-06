@@ -1,6 +1,8 @@
 # CKO-PaymentGateway - Spec
 
-Note: Technical Readme is under the PaymentGateway dir
+![build-test](https://github.com/francis04j/CKO-PaymentGateway/actions/workflows/payment-gateway-workflow.yml/badge.svg)
+
+## Note: Technical Readme is under the PaymentGateway dir
 
 
 # Payment Gateway

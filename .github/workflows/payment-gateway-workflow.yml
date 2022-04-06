@@ -30,8 +30,8 @@ jobs:
     
       - name: Restore NuGet packages
         run: |
-            ls /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymentGateway
-            dotnet restore /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymentGateway/PaymentGateway.sln
+            ls /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway
+            dotnet restore /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymenteGateway/PaymentGateway.sln
 
       - name: Build
         run: dotnet build 'PaymentGateway.sln' -c Release --no-restore

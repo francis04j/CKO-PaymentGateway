@@ -1,4 +1,6 @@
-# CKO-PaymentGateway
+# CKO-PaymentGateway - Spec
+
+Note: Technical Readme is under the PaymentGateway dir
 
 # Payment Gateway
 A Payment Gateway is responsible for validating requests, storing card information and forwarding

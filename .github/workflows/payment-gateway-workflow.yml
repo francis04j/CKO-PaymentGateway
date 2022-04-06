@@ -29,10 +29,10 @@ jobs:
           dotnet-version: '5.0.x'
     
       - name: Restore NuGet packages
-        run: dotnet restore '../PaymentGateway/PaymentGateway.sln'
+        run: dotnet restore '/PaymentGateway/PaymentGateway.sln'
 
       - name: Build
-        run: dotnet build '../PaymentGateway/PaymentGateway.sln' -c Release --no-restore
+        run: dotnet build '/PaymentGateway/PaymentGateway.sln' -c Release --no-restore
     
       - name: Unit Test
         run: dotnet test '../PaymentGateway/Tests/WebApi.UnitTests' -c Release --no-build

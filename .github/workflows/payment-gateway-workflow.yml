@@ -29,7 +29,9 @@ jobs:
           dotnet-version: '5.0.x'
     
       - name: Restore NuGet packages
-        run: dotnet restore 'PaymentGateway.sln'
+        run: |
+            ls /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymentGateway
+            dotnet restore /home/runner/work/CKO-PaymentGateway/CKO-PaymentGateway/PaymentGateway/PaymentGateway.sln
 
       - name: Build
         run: dotnet build 'PaymentGateway.sln' -c Release --no-restore

@@ -4,15 +4,15 @@ env:
 on:
   push:
     paths:
-      - 'PaymentGateway/Src/**'
-      - 'PaymentGateway/Tests/**'
-      - 'PaymentGateway/PaymentGateway.sln'      
+      - 'Src/**'
+      - 'Tests/**'
+      - 'PaymentGateway.sln'      
       - '**/payment-gateway-workflow.yml'
   pull_request:
     paths:
-      - 'PaymentGateway/Src/**'
-      - 'PaymentGateway/Tests/**'
-      - 'PaymentGateway/PaymentGateway.sln'
+      - 'Src/**'
+      - 'Tests/**'
+      - 'PaymentGateway.sln'
       - '**/payment-gateway-workflow.yml'
   workflow_dispatch:
 jobs:
@@ -29,11 +29,11 @@ jobs:
           dotnet-version: '5.0.x'
     
       - name: Restore NuGet packages
-        run: dotnet restore '../PaymentGateway/PaymentGateway.sln'
+        run: dotnet restore 'PaymentGateway.sln'
 
       - name: Build
-        run: dotnet build '../PaymentGateway/PaymentGateway.sln' -c Release --no-restore
+        run: dotnet build 'PaymentGateway.sln' -c Release --no-restore
     
       - name: Unit Test
-        run: dotnet test '../PaymentGateway/Tests/WebApi.UnitTests' -c Release --no-build
+        run: dotnet test 'Tests/WebApi.UnitTests' -c Release --no-build
 

@@ -43,7 +43,8 @@ namespace WebApi.Database.EFCore
         {
             modelBuilder.Entity<PaymentEntity>()
                 .Property(x => x.Amount)
-                .HasColumnType("decimal(19,4)");
+                .HasColumnType("Money");
+               // .HasColumnType("decimal(19,4)");
              modelBuilder.Entity<PaymentEntity>().HasKey(x => x.PaymentId);
            
         }
@@ -71,7 +72,7 @@ namespace WebApi.Database.EFCore
             }
             catch (Exception ex) 
             {
-                _logger.LogError("SaveAsync Failed for BankTransactionCode  {Id} with error message {Message}", item.BankTransactionCode, ex.Message);
+                _logger.LogError("SaveAsync Failed for BankTransactionCode  {Id} with error message {Message}", item.BankTransactionCode, ex.ToString());
                 throw;
             }
 

@@ -35,6 +35,7 @@ namespace WebApi
 
             services.AddHealthChecks();
            
+            //var connection = @"";
             services.AddDbContext<PaymentEFCoreDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
 
@@ -58,6 +59,7 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CoherentSolutions.Extensions.Configuration.AnyWhere;
+using CoherentSolutions.Extensions.Configuration.AnyWhere.AdapterList;
+using CoherentSolutions.Extensions.Configuration.AnyWhere.EnvironmentVariables;
+//using CoherentSolutions.Extensions.Configuration.AnyWhere.KeyPerFile;
+//using CoherentSolutions.Extensions.Configuration.AnyWhere.AzureKeyVault;
 
 namespace WebApi
 {
@@ -21,6 +21,12 @@ namespace WebApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                .ConfigureAppConfiguration((ctx, config) =>
+                 {
+                     config.AddEnvironmentVariables();
+                     config.AddAnyWhereConfigurationAdapterList()
+                     .AddAnyWhereConfiguration();
+                 });
     }
 }
